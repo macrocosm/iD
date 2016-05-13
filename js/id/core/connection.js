@@ -282,7 +282,7 @@ iD.Connection = function(useHttps) {
             var osmChangeJXON = JXON.stringify(connection.osmChangeJXON(changeset_id, changes));
             d3.xhr(url + '/api/0.6/changeset/' + changeset_id + '/upload')
             .header('Content-Type', 'text/xml')
-            .send('POST', osmChangeJXON, function (err, resp) {
+            .send('POST', osmChangeJXON, function (err) {
                 if (err) return callback(err);
                 callback(null, changeset_id);
             });
